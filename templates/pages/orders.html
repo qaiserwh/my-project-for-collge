@@ -1,0 +1,146 @@
+{% extends 'home.html' %}
+{% block content %}
+          <div class="top-bar">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <i class="fa fa-envelope"></i>
+                        qaiserwh@gmail.com
+                    </div>
+                    <div class="col-sm-6">
+                        <i class="fa fa-phone-alt"></i>
+                        +9647812284545
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Top bar End -->
+        <!-- Nav Bar Start -->
+        <div class="nav">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a href="#" class="navbar-brand">MENU</a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                        </div>
+                        <div class="navbar-nav ml-auto">                
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Nav Bar End -->        
+        <!-- Bottom Bar Start -->
+        <div class="bottom-bar">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <div class="logo">
+                            <a href="{% url 'books' %}">
+                                <img src="media/photos/logo.jpg" alt="Logo">
+                            </a>
+                        </div>
+                    </div>
+              <div class="col-md-6">
+           </div>     
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb End -->
+        
+        <!-- Checkout Start -->
+        <div class="checkout">
+            <div class="container-fluid"> 
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="checkout-inner">
+                            <div class="billing-address">
+                                   <div class="row">
+                                    <div class="col-md-6">
+                                    <div style="direction: rtl;" class="wrapper">
+    <!-- Content Wrapper. Contains page content -->
+    <div   class="content-wrapper">
+      <!-- Content Header (Page header) -->
+  <div  class="card card-primary">
+      <div class="card-header">
+        <h3 class="card-title">Complete the order</h3>
+      </div>
+      <!-- /.card-header -->
+      <!-- form start -->
+      <form  method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+        <div class="card-body">
+          {{forms}}
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary">save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+</div>       
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Checkout End -->
+        
+        <!-- Footer Start -->
+        <div class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h2>Get in Touch</h2>
+                            <div class="contact-info">
+                                <p><i class="fa fa-map-marker"></i><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.7594143879887!2d44.312207915162396!3d31.99453678121527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x155ed0af54c94b43%3A0x5e7032a04bcac656!2sBooks%20Market%20of%20Al-Huaish!5e0!3m2!1sen!2siq!4v1615635947755!5m2!1sen!2siq" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe></p>     
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h2>Follow Us</h2>
+                            <div class="contact-info">
+                                <div class="social">
+                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href="https://www.facebook.com/profile.php?id=100004724839469"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.instagram.com/q_wh97/"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h2>more</h2>
+                            <ul>
+                                <p><i class="fa fa-envelope"></i>qaiserwh@gmail.com</p>
+                                <p><i class="fa fa-phone"></i>+9647812284545</p>
+                            </ul>
+                        </div>
+                    </div>              
+                </div>     
+        <!-- Footer End -->
+        <!-- Footer Bottom Start -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 copyright">
+                        <p>Copyright &copy; <a href="https://qaiser1977wh.000webhostapp.com">Qaiser WH</a>. All Rights Reserved</p>
+                    </div>
+                    <div class="col-md-6 template-by">
+                        <p>Template By <a href="https://qaiser1977wh.000webhostapp.com">Qaiser WH</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom End -->       
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    {% endblock content%}

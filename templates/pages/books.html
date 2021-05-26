@@ -1,0 +1,539 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+</style>
+        <!-- Top bar Start -->
+        <div class="top-bar">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <i class="fa fa-envelope"></i>
+                        qaiserwh@gmail.com
+                    </div>
+                    <div class="col-sm-6">
+                        <i class="fa fa-phone-alt"></i>
+                        +9647812284545
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Top bar End -->
+        
+        <!-- Nav Bar Start -->
+        <div class="nav">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a href="#" class="navbar-brand">MENU</a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                        </div>
+                        <div class="navbar-nav ml-auto">
+                            
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Nav Bar End -->      
+        <div class="nav">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a href="#" class="navbar-brand">MENU</a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                             <a href="{% url 'books' %}" class="nav-item nav-link active"><i class="fa fa-home"></i> Home</a>
+                            <a href="{% url 'about' %}" class="nav-item nav-link"><i class="fa fa-table"></i> About</a>
+                            <a href="{% url 'login' %}" class="nav-item nav-link"><i class="fas fa-user-shield"></i> Site Administration</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Bottom Bar Start -->
+        <div class="bottom-bar">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <div class="logo">
+                            <a href="#">
+                                <img src="media/photos/wh1.png" alt="Logo">
+                            </a>
+                        </div>
+                    </div>
+                    
+
+              <div class="col-md-6">
+                <form method="GET"  action="{% url 'books' %}"class="form-inline ml-3">
+                 <div class="input-group input-group-sm">
+                  <input class="form-control form-control-navbar" name="search_name" type="search" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                 <button class="btn btn-navbar" type="submit">
+                   <i class="fas fa-search"></i>
+                </button>
+                </div>
+               </div>
+            </form>
+           </div>
+                   
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Bar End -->       
+        <div class="container my-4">
+   
+      <hr />
+
+<!--Carousel Wrapper-->
+<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+  <!--Controls-->
+  <div class="controls-top">
+    <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+    <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
+        class="fas fa-chevron-right"></i></a>
+  </div>
+  <!--/.Controls-->
+
+  <!--Indicators-->
+  <ol class="carousel-indicators">
+    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+    <li data-target="#multi-item-example" data-slide-to="1"></li>
+    
+  </ol>
+  <!--/.Indicators-->
+
+  <!--Slides-->
+  <div class="carousel-inner" role="listbox">
+
+    <!--First slide-->
+    <div class="carousel-item active">
+
+      <div class="col-md-3" style="float:left">
+       <div class="card mb-2">
+          <img class="card-img-top"
+          
+            src="media\photos\lam.jpg" height="370"  alt="Card image cap">
+         
+        </div>
+      </div>
+
+      <div class="col-md-3" style="float:left">
+        <div class="card mb-2">
+          <img class="card-img-top"
+            src="media\photos\yi.png" height="370"  alt="Card image cap">
+         
+        </div>
+      </div>
+
+      <div class="col-md-3" style="float:left">
+        <div class="card mb-2">
+          <img class="card-img-top"
+            src="media\photos\gh.jpg"height="370"   alt="Card image cap">
+         
+        </div>
+      </div>
+      
+       <div class="col-md-3" style="float:left">
+       <div class="card mb-2">
+          <img class="card-img-top"
+            src="media\photos\xzx.jpg" height="370"  alt="Card image cap">
+         
+        </div>
+      </div>
+
+    </div>
+    <!--/.First slide-->
+
+    <!--Second slide-->
+    <div class="carousel-item">
+
+      <div class="col-md-3" style="float:left">
+        <div class="card mb-2">
+          <img class="card-img-top"
+            src="media\photos\ba.jpg" height="370" alt="Card image cap">
+         
+        </div>
+      </div>
+
+      <div class="col-md-3" style="float:left">
+        <div class="card mb-2">
+          <img class="card-img-top"
+            src="media\photos\121.jpg" height="370" alt="Card image cap">
+         
+        </div>
+      </div>
+
+      <div class="col-md-3" style="float:left">
+        <div class="card mb-2">
+          <img class="card-img-top"
+            src="media\photos\88.jpg"  height="370" alt="Card image cap">
+         
+        </div>
+      </div>
+      
+      <div class="col-md-3" style="float:left">
+        <div class="card mb-2">
+          <img class="card-img-top"
+            src="media\photos\dsdd.jpeg" height="370" alt="Card image cap">
+         
+        </div>
+      </div>
+
+    </div>
+    <div class="carousel-item">
+
+      <div class="col-md-3" style="float:left">
+        <div class="card mb-2">
+          <img class="card-img-top"
+            src="media\photos\sla.jpg" height="370" alt="Card image cap">
+         
+        </div>
+      </div>
+
+      <div class="col-md-3" style="float:left">
+        <div class="card mb-2">
+          <img class="card-img-top"
+            src="media\photos\9.jpeg" height="370" alt="Card image cap">
+         
+        </div>
+      </div>
+
+      <div class="col-md-3" style="float:left">
+        <div class="card mb-2">
+          <img class="card-img-top"
+            src="media\photos\3124939.jpg" height="370" alt="Card image cap">
+         
+        </div>
+      </div>
+      
+      <div class="col-md-3" style="float:left">
+        <div class="card mb-2">
+          <img class="card-img-top"
+            src="media\photos\hg.jpg" height="370" alt="Card image cap">
+         
+        </div>
+      </div>
+
+    </div>
+    <!--/.Second slide-->
+  </div>
+  <!--/.Slides-->
+</div>
+</div>
+<!--/.Carousel Wrapper-->
+     
+        <!-- Brand End -->      
+        
+        <!-- Feature Start-->
+        <div class="feature">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-6 feature-col">
+                        <div class="feature-content">
+                            <i class="fas fa-user-shield"></i>
+                            <h2>Secure Data</h2>
+                            <p>
+                               Customer data will be protected and not authorized in any form or by any party
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 feature-col">
+                        <div class="feature-content">
+                            <i class="fa fa-truck"></i>
+                            <h2>Our Delivery</h2>
+                            <p>
+                                Fast delivery service that maintains product integrity
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 feature-col">
+                        <div class="feature-content">
+                            <i class="fa fa-sync-alt"></i>
+                            <h2>7 Days Return</h2>
+                            <p>
+                               The possibility of retrieving products within a week
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 feature-col">
+                        <div class="feature-content">
+                            <i class="fa fa-headset"></i>
+                            <h2>24/7 Support</h2>
+                            <p>
+                               24/7 support service
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Feature End-->     
+  
+        <!-- Category Start-->
+        <div class="category">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="category-item ch-400">
+                            <img src="media\photos\ri.jpg" />
+                            <a class="category-name" href="">
+                                <strong> <p>THE</p> </strong>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="category-item ch-250">
+                            <img src="media\photos\vcv.jpg" />
+                            <a class="category-name" href="">
+                                 <strong><p>BOOKS</p> </strong>
+                            </a>
+                        </div>
+                        <div class="category-item ch-150">
+                            <img src="media\photos\sas.jpg" />
+                            <a class="category-name" href="">
+                                 <strong><p>CAN</p> </strong>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="category-item ch-150">
+                            <img src="media\photos\rtt.jpeg" />
+                            <a class="category-name" href="">
+                                <strong> <p>CHANGE</p> </strong>
+                            </a>
+                        </div>
+                        <div class="category-item ch-250">
+                            <img src="media\photos\tls.jpg" />
+                            <a class="category-name" href="">
+                                <strong> <p>EVERY</p> </strong>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="category-item ch-400">
+                            <img src="media\photos\lef.jpeg" />
+                            <a class="category-name" href="">
+                                <strong> <p>THINGS</p> </strong>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+               <div class="row justify-content-center mb-3" >
+                <div class="row-5"  >
+                 <ul class="nav">
+
+                {% for cat in Category|slice:'100' %}
+                 <li class="nav-title  cat{{cat.id}}">
+                  
+                    <a id="" class="nav-link bg-warning" > <i class="fab fa-audible"></i><strong href="">{{cat.name}}</strong></li></a>
+                
+                 </li>
+                 {% endfor %}
+   
+               </ul>
+             </div>
+           </div>
+
+        <!-- Category End-->       
+          <div class="product-view">
+            <div class="container-fluid">
+                <div class="row">
+                        <div class="row">      
+           {% for book in books %}
+                            <div class="col-sm-3">
+                                <div class="product-item">
+                                    <div class="product-title">
+                                        <a href="#">{{book.title}}</a>
+                                        <div class="ratting">
+                                        <i class="fa fa-pen"> {{book.auther}}</i><br>
+                                         <i class="fa fa-book">pages:  {{book.pages}}</i>
+                                       
+
+                                        </div>
+                                    </div>
+                                    <div class="product-image">
+                                        <a href="product-detail.html">
+                                        {% if book.photo %}
+                                            <img src="{{book.photo.url}}" alt="Product Image" height="400">
+                                            {% endif %}
+                                        </a>
+                                        <div class="product-action">
+                                         {% if book.photo_auther %}
+                                    <img style="width:100px; height: 100px;" class="img-circle elevation-2" src="{{book.photo_auther.url}}" alt="User Avatar">
+                                    {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="product-price">
+                                        <h3>${{book.price}}</h3>
+                                        <a class="btn" href="{% url 'order' %}"><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>    
+                      </div>
+                     </div>
+        
+        <!-- Footer Start -->
+        <div class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h2>Get in Touch</h2>
+                            <div class="contact-info">
+                                <p><i class="fa fa-map-marker"></i><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.7594143879887!2d44.312207915162396!3d31.99453678121527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x155ed0af54c94b43%3A0x5e7032a04bcac656!2sBooks%20Market%20of%20Al-Huaish!5e0!3m2!1sen!2siq!4v1615635947755!5m2!1sen!2siq" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe></p>     
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h2>Follow Us</h2>
+                            <div class="contact-info">
+                                <div class="social">
+                                    <a href=""><i class="fab fa-twitter"></i></a><br>
+                                    <a href="https://www.facebook.com/profile.php?id=100004724839469"><i class="fab fa-facebook-f"></i></a><br>
+                                    <a href="https://www.instagram.com/q_wh97/"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h2>more</h2>
+                            <ul>
+                                <p><i class="fa fa-envelope"></i>qaiserwh@gmail.com</p>
+                                <p><i class="fa fa-phone"></i>+9647812284545</p>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+  
+        <!-- Footer End -->
+        
+        <!-- Footer Bottom Start -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 copyright">
+                        <img src="media/photos/wh2.png" alt="Logo" width="100">
+                        <p>Copyright &copy; <a href="https://www.facebook.com/profile.php?id=100004724839469">Qaiser WH</a>. All Rights Reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom End -->       
+        
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        
+{% endblock content %}
